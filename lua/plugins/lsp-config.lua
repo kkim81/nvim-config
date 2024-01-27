@@ -15,10 +15,16 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    lazy = false,
+    lazy = false,  dependencies = {
+    "hrsh7th/cmp-nvim-lsp",
+    "williamboman/mason-lspconfig",
+    { "antosha417/nvim-lsp-file-operations", config = true },
+  },
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
+    require("mason-lspconfig").setup({
+        automatic_installation = true,
+    })
       local lspconfig = require("lspconfig")
       lspconfig.tsserver.setup({
         capabilites = capabilities,
@@ -30,6 +36,9 @@ return {
         capabilites = capabilities,
       })
       lspconfig.gopls.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.terraformls.setup({
         capabilities = capabilities,
       })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
