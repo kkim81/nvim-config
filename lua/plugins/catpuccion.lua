@@ -1,11 +1,11 @@
 return {
   {
-    "EdenEast/nightfox.nvim",
+    "rebelot/kanagawa.nvim",
     lazy = false,
-    name = "nightfox",
+    name = "kanagawa",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme "nightfox"
+      vim.cmd.colorscheme "kanagawa"
     end
   }
 }

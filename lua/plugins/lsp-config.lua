@@ -27,18 +27,21 @@ return {
     })
       local lspconfig = require("lspconfig")
       lspconfig.tsserver.setup({
-        capabilites = capabilities,
+        capabilities = capabilities,
       })
       lspconfig.html.setup({
-        capabilites = capabilities,
+        capabilities = capabilities,
       })
       lspconfig.lua_ls.setup({
-        capabilites = capabilities,
+        capabilities = capabilities,
       })
       lspconfig.gopls.setup({
         capabilities = capabilities,
       })
       lspconfig.terraformls.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.pyright.setup({
         capabilities = capabilities,
       })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
